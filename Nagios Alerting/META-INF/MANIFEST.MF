@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Require-Bundle: com.dynatrace.diagnostics.sdk
+Bundle-Vendor: Bakai Balázs
+Bundle-ClassPath: .,lib/commons-lang-2.4.jar,lib/commons-validator-1.4
+ .1.jar,lib/jsendnsca-2.1-RC1.jar
+Bundle-Version: 2.0.0
+Bundle-Name: Nagios Alerting
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: hu.bakaibalazs.dynatrace.nagios.NagiosAlerting;si
+ ngleton:=true
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!-- plugin.xml file written by dynaTrace Client 6.1.0 -->
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="hu.bakaibalazs.dynatrace.nagios" name="NagiosAlerting">
+    <information>
+      <category value="" />
+      <displayname value="Nagios Alerting" />
+      <description value="Nagios Alerting plugin for dynaTrace.&#xA;Created By Balazs Bakai" />
+      <supportlevel value="unsupported" />
+    </information>
+    <configuration>
+      <property key="nagiosHostNameOrIPAddress" label="Nagios host name or ip address" type="string" description="The host or IP of the Nagios host running the NSCA add-on" default="localhost" multiline="false" />
+      <property key="nscaListeningPort" label="NSCA listening port" type="string" description="The port on which NSCA is listening" default="5667" multiline="false" />
+      <property key="nscaPassword" label="NSCA password" type="password" description="The password configured in the ncsa.cfg file used by NSCA" default="" />
+      <property key="nscaEncryption" label="NSCA Encryption" type="list" description="The Encryption to use to encrypt the passive check." default="NONE">
+        <list>
+          <item value="NONE" />
+          <item value="TRIPLE_DES" />
+          <item value="XOR" />
+        </list>
+      </property>
+      <property key="connectionTimeout" label="ConnectTimeout" type="string" description="The connection timeout in ms" default="5000" multiline="false" />
+      <property key="socketTimeout" label="Socket Timeout" type="string" description="Socket timeout to use when sending the passive check in ms&#xA;" default="10000" multiline="false" />
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.action" id="hu.bakaibalazs.dynatrace.nagios.action" name="Nagios Action">
+    <plugin configid="hu.bakaibalazs.dynatrace.nagios" class="hu.bakaibalazs.dynatrace.nagios.NagiosAction" />
+  </extension>
+</plugin>
+
