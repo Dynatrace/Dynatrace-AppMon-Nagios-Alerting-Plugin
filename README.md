@@ -8,4 +8,4 @@ www.bakaibalazs.hu
 
 Telvice Kft.
 
-Find further information in the [dynaTrace community](https://community.compuwareapm.com/community/display/DL/Nagios+Alerting+Plugin)
+Find further information in the [dynaTrace community](https://community.dynatrace.com/community/display/DL/Nagios+Alerting+Plugin)
