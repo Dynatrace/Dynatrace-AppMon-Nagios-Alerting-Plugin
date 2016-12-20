@@ -62,9 +62,12 @@ public class NagiosAction implements Action {
 		log.info("Nagios Alerting Execute");
 		for (Incident i : env.getIncidents()) {
 			logIncidents(i);
+						
 
-			MessagePayload payload = new MessagePayloadBuilder().withHostname(DYNATRACE_PREFIX + i.getKey().getSystemProfile())
-					.withLevel(i.isOpen() ? getNagiosSeverity(i) : Level.OK).withServiceName(i.getIncidentRule().getName()).withMessage(i.getMessage())
+			MessagePayload payload = new MessagePayloadBuilder()
+					.withHostname(DYNATRACE_PREFIX + i.getKey().getSystemProfile())
+					.withLevel(i.isOpen() ? getNagiosSeverity(i) : Level.OK)
+					.withServiceName(removeNotAlphaNumericCharacters(i.getIncidentRule().getName())).withMessage(i.getMessage())
 					.create();
 
 			try {
@@ -76,6 +79,10 @@ public class NagiosAction implements Action {
 			}
 		}
 		return new Status(Status.StatusCode.Success);
+	}
+
+	private String removeNotAlphaNumericCharacters(String message) {
+		return message.replaceAll("[^A-Za-z0-9 ]", "");
 	}
 
 	public String stackTraceToString(Throwable e) {
@@ -113,6 +120,8 @@ public class NagiosAction implements Action {
 	private void logIncidents(Incident incident) {		
 		log.fine("LEVEL:" + (incident.isOpen() ? getNagiosSeverity(incident) : Level.OK));
 		log.fine("RULE:" + incident.getIncidentRule().getName());
+		log.fine("RULE-removed:" + removeNotAlphaNumericCharacters(incident.getIncidentRule().getName()));
+		
 		log.fine("MSG:" + incident.getMessage());
 		log.fine("SERVER:" + DYNATRACE_PREFIX + incident.getKey().getSystemProfile());
 

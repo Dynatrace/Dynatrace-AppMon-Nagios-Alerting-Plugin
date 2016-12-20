@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
-<!-- plugin.xml file written by dynaTrace Client 6.1.0 -->
+<!-- plugin.xml file written by dynaTrace Client 6.3.13 -->
 <plugin>
   <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="hu.bakaibalazs.dynatrace.nagios" name="NagiosAlerting">
     <information>
       <category value="" />
       <displayname value="Nagios Alerting" />
-      <description value="Nagios Alerting plugin for dynaTrace.&#xA;Created By Balazs Bakai" />
+      <description value="Nagios Alerting plugin for dynaTrace.&#xA;Created By Balazs Bakai 2016.12.20" />
       <supportlevel value="unsupported" />
     </information>
     <configuration>
@@ -28,4 +28,3 @@
     <plugin configid="hu.bakaibalazs.dynatrace.nagios" class="hu.bakaibalazs.dynatrace.nagios.NagiosAction" />
   </extension>
 </plugin>
-
