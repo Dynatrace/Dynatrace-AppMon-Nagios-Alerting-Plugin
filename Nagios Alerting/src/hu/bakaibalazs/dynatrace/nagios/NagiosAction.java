@@ -1,7 +1,6 @@
 /**
  * dynaTrace Nagios Alerting Plugin 
  * Created By Balazs Bakai
- * www.bakaibalazs.hu
  **/
 
 package hu.bakaibalazs.dynatrace.nagios;
